@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+/*import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -29,4 +29,38 @@ export default function RootLayout({
       </body>
     </html>
   );
+}
+*/
+import React from "react";
+import './globals.css';
+import styled from "styled-components";
+
+const Container = styled.div`
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: cyan;
+`
+
+const StyledImg = styled.img`
+    width: 10%;
+    margin: 1% 2%;
+`
+
+export default function RootLayout(
+  {children,}: Readonly<{children: React.ReactNode}>){
+    return(
+      <html lang ="en">
+        <body>
+          <Container>
+            <StyledImg src="./logo_nasa.png" alt ="logo NASA"></StyledImg>
+            <h1>Picture of the Day taken by NASA</h1>
+            <StyledImg src="./logo_planet.png" alt ="logo planet"></StyledImg>
+          </Container>
+          {children}
+        </body>
+      </html>
+    )
 }

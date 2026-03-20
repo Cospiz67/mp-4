@@ -1,4 +1,4 @@
-:root {
+/*:root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -39,4 +39,12 @@ a {
   html {
     color-scheme: dark;
   }
+}
+*/
+
+
+*{
+  margin:0;
+  box-sizing: border-box;
+  font: calc(2px + 1.5vw) "Lucida Console", "Courier New", monospace;
 }

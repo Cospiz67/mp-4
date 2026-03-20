@@ -1,4 +1,4 @@
-import Image from "next/image";
+/*import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -63,4 +63,41 @@ export default function Home() {
       </main>
     </div>
   );
+}
+*/
+import styled from "styled-components"
+
+const StyledDiv = styled.div`
+  margin: 5% auto;
+  padding: 2%;
+  width: 40%;
+  border-radius: 20px;
+  background-color: red;
+  text-align:center
+`
+const StyledH1 = styled.h1`
+  font-size: calc(2px + 2.5vw);
+  font-weight:bold;
+`
+const StyledH3 = styled.h3`
+  font-size: calc(2px + 1vw);
+  color: hsla(0, 3%, 19%, 0.95);
+`
+
+const StyledLabel = styled.label`
+  font-size: calc(2px + 1vw);
+  font-weight: bold;
+`
+
+export default function Home(){
+  let date= "/";
+  return(
+    <StyledDiv>
+      <StyledH1>NASA Picture</StyledH1>
+      <StyledH3>Search a date to see the picture!</StyledH3>
+      <StyledLabel htmlFor="Date selector">Date Selector:</StyledLabel>
+      <input type ="date"></input>
+      <a href={date}>Search</a>
+    </StyledDiv>
+  )
 }
