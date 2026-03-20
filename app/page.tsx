@@ -65,7 +65,9 @@ export default function Home() {
   );
 }
 */
-import styled from "styled-components"
+
+"use client";
+import styled from "styled-components";
 
 const StyledDiv = styled.div`
   margin: 5% auto;
@@ -89,15 +91,21 @@ const StyledLabel = styled.label`
   font-weight: bold;
 `
 
+function changeDate(){
+  const input = document.getElementById("input") as HTMLInputElement;
+  const date = input.value;
+  if(input.value.trim() !== '')
+    window.location.href = "/"+date;
+}
+
 export default function Home(){
-  let date= "/";
   return(
     <StyledDiv>
       <StyledH1>NASA Picture</StyledH1>
       <StyledH3>Search a date to see the picture!</StyledH3>
       <StyledLabel htmlFor="Date selector">Date Selector:</StyledLabel>
-      <input type ="date"></input>
-      <a href={date}>Search</a>
+      <input required type ="date" id="input"></input>
+      <button onClick={changeDate} >Search</button>
     </StyledDiv>
   )
 }

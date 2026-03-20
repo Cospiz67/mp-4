@@ -1,17 +1,30 @@
 'use client'
 import { useParams } from "next/navigation";
-import useSWR from 'swr';
-const params = useParams();
+import { DataType } from "../types/DataType";
+import { useState,useEffect } from "react";
 
-const {data,error} = useSWR(`./api/getNasaData?date=${params.date}`, 
-    (url)=>
-        fetch(url).then((res)=>res.json).catch((e)=> console.log("error: " +e))
-);
+
+
 
 export default function Date(){
+    const params = useParams();
+
+    const [data, setData] = useState<DataType[]>([]);
+    useEffect( ()=>{
+        async function fetchData(){
+        const res = await fetch(`./api/getNasaData?date=${params.date}`);
+        const results = await res.json();
+        setData(results);
+        console.log(results);
+        }
+        fetchData()
+        .then(()=> console.log("all good"))
+        .catch((e)=> console.log("error: " +e));
+
+        }, [data.length]);
     return(
         <>
-          <h1>{data}</h1>
+          <h1></h1>
         </>
     )
 }
