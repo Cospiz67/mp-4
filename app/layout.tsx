@@ -39,6 +39,8 @@ const StyledContainer = styled.div`
   width: 100%;
   min-height:100vh;
   background: radial-gradient(circle at center, #0B1D3F 0%, #050A1B 80%);
+  position: relative;
+  z-index:0;
 `
 
 const StyledHeader = styled.div`
@@ -54,7 +56,20 @@ const StyledImg = styled.img`
   width: 7%;
   margin: 1% 2%;
 `
-const Wrapper = styled.div`
+const StyledPlanet = styled.div`
+  position: fixed;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 110%;
+  min-height: 100%;
+  opacity: 0.4;
+  pointer-events: none;
+  background-image: url("./planet_earth.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
 `
 
 export default function RootLayout(
@@ -68,9 +83,8 @@ export default function RootLayout(
               <h1>Picture of the Day taken by NASA</h1>
               <StyledImg src="./logo_planet.png" alt ="logo planet"></StyledImg>
             </StyledHeader>
-            <Wrapper>
-              {children}
-            </Wrapper>
+            {children}
+            <StyledPlanet></StyledPlanet>
           </StyledContainer>
         </body>
       </html>

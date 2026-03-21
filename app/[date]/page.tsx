@@ -5,11 +5,56 @@ import { useState,useEffect } from "react";
 import useSWR from "swr";
 import styled from "styled-components";
 
-const Card= styled.div`
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 40px;
-    background: rgba(255,255,255,0.02);
-    backdrop-filter: blur(4px);
+const StyledContainer= styled.div`
+    padding: 2%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+`
+const StyledTexts = styled.div`
+    display:flex;
+    flex-direction: column;
+    text-align: justify;
+    justify-content: center;
+    max-width: 50%;
+    margin: 0 auto;
+
+`
+const StyledH1 = styled.h1`
+    color: #33CCCC;
+    padding-bottom: 5%;
+    margin: 0 auto;
+`
+const StyledP = styled.p`
+    font-size: calc(2px + 1vw);
+    font-family: Consolas, monospace;
+    width: 90%;
+    margin: 0 auto;
+`
+const StyledCredits = styled.p`
+    font-size: calc(2px + 0.7vw);
+    font-family: Consolas, monospace;
+    margin: 0 auto;
+    padding: 2% 0 3%;
+`
+const StyledButton = styled.button`
+    width: max-content;
+    padding:3% 1%;
+    margin: 2% auto;
+    border: 0.1px solid #E6E6E6;
+    background-color: transparent;
+    font-size: calc(2px + 0.7vw);
+
+    &:hover {
+        border-color: #33CCCC;
+        background-color: #142B50;
+    }
+`
+const StyledImg = styled.img`
+    max-width: 40%;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #33CCCC;
 `
 
 export default function Date(){
@@ -45,10 +90,14 @@ export default function Date(){
   };
     console.log(data);
     return(
-        <Card>
-            <h1>{data?.title} | {data?.date}</h1>
-            <img src= {data?.url} alt={data?.title}></img>
-            <p>{data?.explanation}</p>
-        </Card>
+        <StyledContainer>
+            <StyledTexts>
+                <StyledH1>{data?.title} | {data?.date}</StyledH1>
+                <StyledP>{data?.explanation}</StyledP>
+                <StyledCredits>Copyright: {data?.copyright}</StyledCredits>
+                <StyledButton onClick={()=>window.location.href = "/"}>Return to Date Selector</StyledButton>
+            </StyledTexts>
+            <StyledImg src= {data?.url} alt={data?.title}></StyledImg>
+        </StyledContainer>
     )
 }
