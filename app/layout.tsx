@@ -35,18 +35,26 @@ import React from "react";
 import './globals.css';
 import styled from "styled-components";
 
-const Container = styled.div`
-    width:100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: cyan;
+const StyledContainer = styled.div`
+  width: 100%;
+  min-height:100vh;
+  background: radial-gradient(circle at center, #0B1D3F 0%, #050A1B 80%);
+`
+
+const StyledHeader = styled.div`
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #142B50;
 `
 
 const StyledImg = styled.img`
-    width: 10%;
-    margin: 1% 2%;
+  width: 7%;
+  margin: 1% 2%;
+`
+const Wrapper = styled.div`
 `
 
 export default function RootLayout(
@@ -54,12 +62,16 @@ export default function RootLayout(
     return(
       <html lang ="en">
         <body>
-          <Container>
-            <StyledImg src="./logo_nasa.png" alt ="logo NASA"></StyledImg>
-            <h1>Picture of the Day taken by NASA</h1>
-            <StyledImg src="./logo_planet.png" alt ="logo planet"></StyledImg>
-          </Container>
-          {children}
+          <StyledContainer>
+            <StyledHeader>
+              <StyledImg src="./logo_nasa.png" alt ="logo NASA"></StyledImg>
+              <h1>Picture of the Day taken by NASA</h1>
+              <StyledImg src="./logo_planet.png" alt ="logo planet"></StyledImg>
+            </StyledHeader>
+            <Wrapper>
+              {children}
+            </Wrapper>
+          </StyledContainer>
         </body>
       </html>
     )

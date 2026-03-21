@@ -75,7 +75,8 @@ const StyledDiv = styled.div`
   width: 40%;
   border-radius: 20px;
   background-color: red;
-  text-align:center
+  text-align:center;
+  border: #33CCCC solid 2px;
 `
 const StyledH1 = styled.h1`
   font-size: calc(2px + 2.5vw);
@@ -91,6 +92,21 @@ const StyledLabel = styled.label`
   font-weight: bold;
 `
 
+const StyledPlanet = styled.div`
+  position: fixed;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 110%;
+  min-height: 100%;
+  opacity: 0.4;
+  background-image: url("./planet_earth.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+`
+
 function changeDate(){
   const input = document.getElementById("input") as HTMLInputElement;
   const date = input.value;
@@ -100,12 +116,15 @@ function changeDate(){
 
 export default function Home(){
   return(
-    <StyledDiv>
-      <StyledH1>NASA Picture</StyledH1>
-      <StyledH3>Search a date to see the picture!</StyledH3>
-      <StyledLabel htmlFor="Date selector">Date Selector:</StyledLabel>
-      <input required type ="date" id="input"></input>
-      <button onClick={changeDate} >Search</button>
-    </StyledDiv>
+    <>
+      <StyledDiv>
+        <StyledH1>NASA Picture</StyledH1>
+        <StyledH3>Search a date to see the picture!</StyledH3>
+        <StyledLabel htmlFor="Date selector">Date Selector:</StyledLabel>
+        <input required type ="date" id="input"></input>
+        <button onClick={changeDate} >Search</button>
+      </StyledDiv>
+      <StyledPlanet></StyledPlanet>
+    </>
   )
 }

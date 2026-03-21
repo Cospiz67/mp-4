@@ -46,5 +46,6 @@ a {
 *{
   margin:0;
   box-sizing: border-box;
-  font: calc(2px + 1.5vw) "Lucida Console", "Courier New", monospace;
+  font: calc(2px + 1.5vw) "OCR A Extended", Consolas, monospace;
+  color:#E6E6E6;
 }
