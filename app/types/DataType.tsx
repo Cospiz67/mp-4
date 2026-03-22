@@ -1,6 +1,7 @@
 export type DataType = {
-    date: "string",
-    explanation:"string",
-    url:"string",
-    title:"string",
+    date: string,
+    explanation: string,
+    url: string,
+    title: string,
+    copyright: string,
 }
