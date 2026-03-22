@@ -10,6 +10,10 @@ const StyledContainer= styled.div`
     display:flex;
     flex-direction: row;
     justify-content: center;
+
+    @media screen and (max-width: 750px) {
+        flex-direction: column;
+    }
 `
 const StyledTexts = styled.div`
     display:flex;
@@ -19,6 +23,9 @@ const StyledTexts = styled.div`
     max-width: 50%;
     margin: 0 auto;
 
+    @media screen and (max-width: 750px) {
+        margin-top: 10%;
+    }
 `
 const StyledH1 = styled.h1`
     color: #33CCCC;
@@ -30,6 +37,10 @@ const StyledP = styled.p`
     font-family: Consolas, monospace;
     width: 90%;
     margin: 0 auto;
+
+    @media screen and (max-width: 750px) {
+        width:100%;
+    }
 `
 const StyledCredits = styled.p`
     font-size: calc(2px + 0.7vw);
@@ -55,6 +66,10 @@ const StyledImg = styled.img`
     margin: 0 auto;
     border-radius: 10px;
     border: 1px solid #33CCCC;
+
+    @media screen and (max-width: 750px) {
+        margin-top: 10%;
+    }
 `
 
 export default function Date(){
