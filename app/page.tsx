@@ -153,7 +153,7 @@ export default function Home(){
                   <StyledCard key={index}
                     href= {"/"+date.toLocaleDateString('en-CA')}>
                     <StyledString>{stringDates[index]}</StyledString>
-                    <p>{date.toLocaleDateString()}</p>
+                    <p>{date.toLocaleDateString('en-CA')}</p>
                   </StyledCard>
               );
             })
