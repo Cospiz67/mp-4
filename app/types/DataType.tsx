@@ -4,4 +4,6 @@ export type DataType = {
     url: string,
     title: string,
     copyright: string,
+    code: number,
+    msg: string,
 }

@@ -61,6 +61,7 @@ const StyledLink = styled(Link)`
     background-color: transparent;
     font-size: calc(2px + 0.7vw);
     text-decoration: none;
+    display: flex;
 
     &:hover {
         border-color: #33CCCC;
@@ -93,7 +94,7 @@ export default function Date(){
     const params = useParams();
 
     const {data, error}:{data:DataType, error: any} = useSWR(`./api/getNasaData?date=${params.date}`,
-        (url)=> fetch(url).then((res)=>res.json())
+        (url)=> fetch(url).then((res)=>res.json().catch(error=><StyledError>There is an error: {error.message}</StyledError>))
     );
 
     if(error){
@@ -102,6 +103,16 @@ export default function Date(){
 
     if(data === null || data ===undefined){
         return(<StyledError>Loading...</StyledError>);
+    }
+    
+    if( data.code === 400)
+    {
+        return(
+            <>
+                <StyledError>There is an error: {data.msg}</StyledError>
+                <StyledLink href= "/">Return to Date Selector</StyledLink>
+            </>
+        )
     }
 
     const parts = (data.url).split('.');
