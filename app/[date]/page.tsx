@@ -1,7 +1,6 @@
 'use client'
 import { useParams } from "next/navigation";
 import { DataType } from "../types/DataType";
-import { useState,useEffect } from "react";
 import useSWR from "swr";
 import styled from "styled-components";
 import Link from "next/link";

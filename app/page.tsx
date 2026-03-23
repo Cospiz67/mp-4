@@ -151,7 +151,7 @@ export default function Home(){
             arrayDates.map((date, index)=>{
               return(
                   <StyledCard key={index}
-                    href= {"/"+date.toISOString().slice(0, 10)}>
+                    href= {"/"+date.toLocaleDateString('en-CA')}>
                     <StyledString>{stringDates[index]}</StyledString>
                     <p>{date.toLocaleDateString()}</p>
                   </StyledCard>
